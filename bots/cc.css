@@ -1,0 +1,1019 @@
+body {
+            margin: 0; /* Remova a margem */
+            padding: 0; /* Remova o preenchimento */
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        #header {
+            padding: 20px;
+        }
+
+        #buttons {
+            margin: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .button-text {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: block;
+            width: 80%;
+            max-width: 200px;
+            height: 40px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: rgb(41, 41, 41);
+        }
+
+        #button1 {
+            background-image: url('imagem1.jpg');
+        }
+
+        #button2 {
+            background-image: url('imagem2.jpg');
+        }
+
+        #button3 {
+            background-image: url('imagem3.jpg');
+        }
+
+        .line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(230, 230, 230);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(230, 230, 230);
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0; 
+    
+}
+
+
+
+
+
+        .back-button {
+            position: absolute;
+            top: 25px;
+            left: 10px;
+            font-size: 24px;
+            color: white;
+            background: #111;
+            border: none;
+        }
+
+        .notification-icon {
+            color: #fffefe;
+            position: absolute;
+            top: 25px;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 17px;
+            right: 70px;
+        }
+
+        .profile-icon {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background-color: #575757; /* Cor do círculo */
+            width: 40px; /* Largura do círculo */
+            height: 40px; /* Altura do círculo */
+            border-radius: 50%; /* Faz o círculo */
+            display: flex;
+            border: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px; /* Tamanho do ícone */
+            color: rgb(255, 255, 255); /* Cor do ícone */
+            cursor: pointer;
+        }
+        .link-button {
+            text-decoration: none;
+            color: white;
+        }
+
+        .logout-container {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 10px;
+            background-color: #111; /* Cor sólida de fundo (não transparente) */
+            border: 1px solid rgb(185, 181, 181);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999; /* Valor alto para ficar acima de outros elementos */
+        }
+
+        .logout-button {
+            display: block;
+            background: #111;
+            border: none;
+            font-size: 16px;
+            text-decoration: none;
+            color: rgb(255, 0, 0); /* Customize the color as you wish */
+        }
+
+        .logout-button:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            width: 70%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(41, 41, 41);
+            z-index: 1;
+            display: none;
+        }
+
+        /* Style for the content inside the container */
+        .sidebar-content {
+            padding: 20px;
+            color: rgb(255, 254, 254);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style for the text in the container */
+        .container-text {
+            background-color: rgb(41, 41, 41);
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        /* Style for the line under "Menu" at the bottom */
+       
+
+        /* Style for the icons */
+        .container-text .icon {
+            background-color: rgb(41, 41, 41);
+            margin-right: 10px;
+            color: #FF5733;
+        }
+
+        .sidebar-content i {
+            margin-right: 10px;
+        }
+
+        /* Style for the links in the container with margin bottom */
+        .sidebar-content a {
+            margin-bottom: 15px;
+            margin-top: 18px;
+            background-color: rgb(41, 41, 41);
+            padding: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #f8f5f5;
+            right: 10px;
+            margin-left: -16px;
+            text-align: left;
+        }
+
+        .notification-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .notification-content {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
+
+        .notification-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the icons in the notification container */
+        .notification-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .notification-icon-item {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #notification-back-button {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    font-size: 24px;
+}
+
+ 
+
+
+
+
+
+
+
+.texto-branco {
+            color: white; /* Define a cor do texto como branco */
+            position: absolute; /* Define a posição absoluta para posicioná-lo onde desejar */
+            top: 25PX; /* Coloca o texto no topo da página */
+            left: 40px; /* Coloca o texto no canto esquerdo */
+            font-weight: bold; /* Ou utilize font-weight: 800; */
+            font-size: 20px;
+
+        }
+
+
+               .rectangle-container {
+            /* Estilos do retângulo */
+            width: 100%;
+            height: 70px;
+            left: 0;
+            background-color: rgb(41, 41, 41);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            z-index: 9999999;
+        }
+
+
+        
+        .inicio-button h5{
+        color: rgb(30, 255, 0);/* Altera a cor do texto para azul no botão "INÍCIO" */
+    }
+
+    .inicio-button i {
+        color: rgb(30, 255, 0); /* Altera a cor do ícone para azul no botão "INÍCIO" */
+    }
+
+
+
+
+        .custom-button {
+            /* Estilos do botão com cores diferentes */
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .inicio-button {
+           color: rgb(157, 155, 155); /* Cor de fundo para o botão INÍCIO */
+        }
+
+        .money-button {
+         color: rgb(157, 155, 155); /* Cor de fundo para o botão BÔNUS */
+        }
+
+        .instagram-button {
+           color: rgb(157, 155, 155); /* Cor de fundo para o botão COMUNIDADE */
+        }
+
+        .custom-button.active .button-icon,
+        .custom-button.active h5 {
+            color: rgb(30, 255, 0);  /* Cor azul para o ícone e o texto dentro do botão ativo */
+        }
+
+        .custom-button.active {
+            color: transparent;
+        }
+
+        .button-icon {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            margin: 0;
+            font-size: 10px;
+            scroll-margin-bottom: 20px;
+        }
+        .container-horizontal-item {
+            text-align: center;
+            
+        }
+        
+        .second-text {
+            color: white;
+            font-size: 16px;
+
+        }
+        
+
+        .container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: px;
+            background-color: transparent;
+            width: 100%; /* Garante que os containers inferiores ocupem toda a largura disponível */
+        }
+        
+        /* Estilos para o contêiner pai dos containers inferiores */
+        .container-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4px;
+            background-color: transparent;
+            width: 100%; /* Garante que os containers inferiores ocupem toda a largura disponível */
+        
+        }
+        
+        /* Estilos para os containers inferiores */
+        .container-horizontal-item {
+            font-size: 14px;
+            flex: 1;
+            background-color: #141414;
+            border: 2px solid #141414;;
+            border-radius: 4px;
+            color: rgb(172, 166, 166);
+            text-align: center;
+            width: 170px;
+            height: 35px;
+            margin: 10px;
+            line-height: 15px;
+            /* Ajuste o padding para mover o texto verticalmente */
+            
+            padding-top: 0; /* Ajuste conforme necessário para mover o texto para baixo */
+            padding-bottom: 45px; /* Ajuste conforme necessário para mover o texto para cima */
+
+        }
+        
+        
+        
+
+        .container-horizontal-item1 {
+            font-size: 14px;
+            flex: 1;
+            background-color: #141414;
+            border: 2px solid #141414;;
+            border-radius: 3px;
+            color: rgb(198, 197, 197);
+            text-align: center;
+            width: 290px;
+            height: 200px;
+            margin: 2px;
+            line-height: 0;
+            /* Ajuste o padding para mover o texto verticalmente */
+            
+            padding-top: 0; /* Ajuste conforme necessário para mover o texto para baixo */
+            padding-bottom: 4px; /* Ajuste conforme necessário para mover o texto para cima */
+
+        }
+
+
+
+        
+       /* CSS para os containers das mensagens */
+       .message-container {
+        position: auto; 
+        margin-top: 40px; /* Defina a distância desejada do topo (centro vertical) */
+        left: 50%; /* Centralize horizontalmente */
+        transform: translate(0, -50%); /* Centralize verticalmente e horizontalmente */
+        background-color: #141414;
+        width: 555px;
+        height: 45px;
+        border: 2px solid #141414;;
+        border-radius: 4px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 1;
+        text-align: center;
+
+    }
+    
+   
+    
+    
+    
+   
+
+        #message {
+            color: white; /* Cor do texto branco */
+            
+        }
+        
+        #messageText {
+            margin-top: 15px; /* Remove margem interna do texto */
+        }
+        
+       
+
+
+
+
+/* parte para celular e aquiiiiiiiiiiiiii*/
+
+        @media only screen and (max-width: 678px) {
+
+            .container-horizontal-item {
+            text-align: center;
+        }
+        
+        .second-text {
+            color: white;
+            font-size: 16px;
+        }
+        
+
+        .container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: px;
+            background-color: transparent;
+            width: 100%; /* Garante que os containers inferiores ocupem toda a largura disponível */
+           height: 100%;
+
+        }
+        
+        /* Estilos para o contêiner pai dos containers inferiores */
+        .container-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            background-color: transparent;
+            width: 100%; /* Garante que os containers inferiores ocupem toda a largura disponível */
+           height: 40px;
+
+        
+        }
+        
+        /* Estilos para os containers inferiores */
+        .container-horizontal-item {
+            font-size: 14px;
+            flex: 1;
+            background-color: #141414;
+            border: 2px solid #141414;
+            border-radius: 5px;
+            color: rgb(198, 197, 197);
+            text-align: center ;
+            width: 90px;
+            height: 20px;
+            margin: 8px;
+            line-height: px;
+            /* Ajuste o padding para mover o texto verticalmente */
+             margin-top: -30px;
+            padding-top: 0; /* Ajuste conforme necessário para mover o texto para baixo */
+            padding-bottom: 50px; /* Ajuste conforme necessário para mover o texto para cima */
+
+        }
+        
+        
+        
+
+        .container-horizontal-item1 {
+            font-size: 14px;
+            flex: 1;
+            background-color: #141414;;
+            border: 2px solid #141414;;
+            border-radius: 5px;
+            color: rgb(198, 197, 197);
+            text-align: center;
+            width: 290px;
+            height: 20px;
+            margin: 2px;
+            line-height: 0;
+            /* Ajuste o padding para mover o texto verticalmente */
+            
+            padding-top: 0; /* Ajuste conforme necessário para mover o texto para baixo */
+            padding-bottom: 4px; /* Ajuste conforme necessário para mover o texto para cima */
+
+        }
+
+
+
+    /* CSS para os containers das mensagens */
+    .message-container {
+        position: auto; 
+        margin-top: 2px; /* Defina a distância desejada do topo (centro vertical) */
+        left: 50%; /* Centralize horizontalmente */
+        transform: translate(0, -50%); /* Centralize verticalmente e horizontalmente */
+        background-color: #141414;;
+        width: 310px;
+        height: 40px;
+        border: 2px solid #141414;;
+        border-radius: 4px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 1;
+        text-align: center;
+
+    }
+    
+   
+    
+    
+    
+   
+
+        #message {
+            color: white; /* Cor do texto branco */
+        }
+        
+        #messageText {
+            margin-top: 10px; /* Remove margem interna do texto */
+        
+        ;}
+        
+
+
+        }
+
+
+        
+
+
+
+
+
+
+
+
+
+        body {
+            margin: 0;
+            background-color: #111;
+            min-height: 100vh; /* Defina uma altura mínima de 100% da altura da viewport */
+
+        }
+
+
+
+
+    
+
+
+        .spinner {
+            border: 4px solid rgb(176, 176, 176); /* Cor verde */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite; /* Rotação por 10 segundos */
+            display: none;
+            position: absolute;
+            top: 25%; /* Centraliza verticalmente */
+            left: 48%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+        }
+
+        @media only screen and (max-width: 678px) {
+            .spinner {
+            border: 4px solid rgb(176, 176, 176); /* Cor verde */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite; /* Rotação por 10 segundos */
+            display: none;
+            position: absolute;
+            top: 25%; /* Centraliza verticalmente */
+            left: 46%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+        }}
+
+
+
+
+
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Adicione este estilo para ocultar os quadrados que contêm estrelas */
+.hidden .square {
+    display: none;
+}
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Empilhar elementos verticalmente */
+            align-items: center;
+        }
+        
+        .board {
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px; /* Acomodar 5 quadrados por linha (5 * 50px) */
+        }
+        
+        .row {
+            display: flex;
+        }
+        
+       
+
+
+      
+        
+     
+        
+        .red {
+            background-color: rgb(2, 3, 88); /* Cor do quadrado */
+           
+        
+        }
+        
+        
+        
+        
+          
+               
+        #generateStarsButton {
+    margin-left: -27px;
+    font-weight: bold;
+    width: 353px;
+    font-size: 15px;
+    height: 45px;
+    color: #ffffff;
+    background-color: #0FB878;
+    border-radius: 4px;
+    border: none;
+    margin-top: 15px;
+    position: relative;
+    top: 35px; /* Ajuste a posição para cima */
+    display: block; /* Para tornar o âncora em bloco */
+    text-align: center; /* Para centralizar o texto */
+    text-decoration: none; /* Remover sublinhado padrão do link */
+}
+
+
+
+
+
+        
+
+@media (min-width: 768px) {
+            #generateStarsButton {
+                width: 599px; /* Tamanho maior para computadores */
+            margin-left: -150px;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 10px;
+            }
+        }
+
+          
+        #generateStarsButton11 {
+    margin-left: -27px;
+    font-weight: bold;
+    width: 353px;
+    font-size: 15px;
+    height: 45px;
+    color: #ffffff;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    margin-top: 15px;
+    position: relative;
+    top: -20px; /* Ajuste a posição para cima */
+    display: block; /* Para tornar o âncora em bloco */
+    text-align: center; /* Para centralizar o texto */
+    text-decoration: none; /* Remover sublinhado padrão do link */
+    z-index: -1;
+}
+
+
+
+
+
+        
+
+@media (min-width: 768px) {
+            #generateStarsButton11 {
+                width: 599px; /* Tamanho maior para computadores */
+            margin-left: -150px;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: -10px;
+            z-index: -1;
+            }
+        }
+    
+    .iframe {
+      position: relative;
+    width: 200%;
+    height: 500px;
+    padding-bottom: 56.25%; /* Proporção de 16:9 (Ajuste de acordo com a proporção desejada) */
+margin-bottom: 200px;
+    }
+    
+    .iframe iframe {
+      position: absolute;
+      top: 100px;
+   display: block;
+   left:150px;
+   margin:0 auto;
+      width: 100%;
+      height: 200%;
+  
+    }
+    
+    
+    
+    
+   
+    
+
+    
+    /* Media query para telas menores, como celulares */
+    @media screen and (max-width: 768px) {
+      .iframe {
+        position: relative;
+        width: 90%;
+      
+        height: 600px;
+        margin-top: 140px;
+        bottom: 30px;
+        padding-bottom: 90%;
+        /* Proporção de 16:9 (Ajuste de acordo com a proporção desejada) */
+        margin-bottom: -9000px;
+        
+      }
+    
+    
+    
+      .iframe iframe {
+        position: absolute;
+        top: -100px;
+     left:-49%;
+        margin-left: 122px;
+        width: 125%;
+        height: 100%;
+    
+      }
+    
+    
+    @-webkit-keyframes notification {
+  to {
+    transform: translateY(-2px);
+  }
+}
+@keyframes notification {
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+/* Notificação */
+small {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  background: #42445A;
+  color: #15DE6B;
+  min-width: 20px;
+  height: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: 0.8em;
+  margin-top: -10px;
+  margin-right: -10px;
+  -webkit-animation: notification 0.3s infinite alternate;
+          animation: notification 0.3s infinite alternate;
+}
+  .icon {
+            display: inline-block;
+            vertical-align: middle;
+        }
+      
+        .custom-icon {
+            position: relative;
+            /* Adicionando estilo para o cursor mudar ao passar o mouse sobre o ícone */
+            cursor: pointer;
+            padding: -50px 1px; /* Adiciona espaço interno ao botão */
+
+       
+        }
+
+        /* Define different sizes based on screen width */
+        @media (max-width: 767px) {
+            .custom-icon {
+             top: 277px;
+             margin-left: 185px ;
+             padding: 50px 1px; /* Adiciona espaço interno ao botão */
+         
+         
+         
+            }
+        }
+
+        @media (min-width: 768px) {
+            .custom-icon {
+                top: 343px;
+                margin-left: 1px ;
+
+
+            }
+        }
+        
+        
+            .texto-branco1 {
+                color: white; /* Define a cor do texto como branco */
+                position: absolute; /* Define a posição absoluta para posicioná-lo onde desejar */
+              top: -0px; /* Coloca o texto no topo da página */
+                left: 40px; /* Coloca o texto no canto esquerdo */
+                font-weight: bold; /* Ou utilize font-weight: 800; */
+                font-size: 20px;
+    
+            }
+    
+    a{
+      font-size: 35px;
+      text-decoration: none;
+      background: whitesmoke;
+      border-radius: 50px;
+     
+    }
+    
+                /* Estilize o texto conforme necessário */
+        .text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+      
+        .custom-icon11 {
+            position: relative;
+            /* Adicionando estilo para o cursor mudar ao passar o mouse sobre o texto */
+            cursor: pointer;
+            color: #58B8E2;
+            padding: 5px 10px; /* Adiciona espaço interno ao botão */
+
+        }
+
+        /* Define different sizes based on screen width */
+        @media (max-width: 767px) {
+            .custom-icon11 {
+                top: 262px;
+                margin-left: 90px;
+                font-weight: 550;
+                font-size: 15px;
+                padding: -50px -10px; /* Adiciona espaço interno ao botão */
+border-radius: 27px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .custom-icon11 {
+                top: 329px;
+                margin-left: -100px;
+                font-weight: 550;
+
+
+            }
+        }
+        #message{
+          color:red;
+          text-align: center;
+          align-items: center;
+        }
+        
+                    .containerabaixo1 {
+                background-color: #1e1d1fd0;
+                color: white; /* Cor do texto dentro do container */
+                padding: 20px;
+                border-radius: 5px;
+                text-align: center;
+                width: 187%; /* Largura do container para telas maiores */
+                max-width: 800px; /* Largura máxima para telas menores */
+                margin-top: 10px;
+                position: relative;
+                margin-left: -150px;
+                margin-bottom: 30px;
+                z-index: -1;
+                height: 1px;
+            }
+            .texto-centralizado {
+                margin-left: -350px;
+                margin-top: -7px ;   
+                color:grey;
+
+}
+
+            @media (max-width: 768px) {
+                /* Estilos para telas menores, como celulares */
+                .containerabaixo1 {
+                    height: 13px;
+                    width: 50%;
+                    padding: 15px;
+                    position:relative;
+                   margin-left: -28px;
+                margin-bottom: 33px;   
+            margin-top: -125px;
+            z-index: -1;
+            }
+
+          
+        .texto-centralizado {
+            position: relative;
+margin-left: -130px;
+margin-top: -1px; 
+color: red;
+font-size: 14px;}
+            }
+
+
+            .iconedecirculo{
+    margin-top: -60px;
+    z-index: 9999;
+    margin-left: -550px;
+    color: gray;
+    font-size: 20px;
+}
+
+
+            @media (max-width: 768px) {
+
+.iconedecirculo{
+    margin-top: -63px;
+    z-index: 9999;
+    margin-left: -300px;
+    color: gray;
+    font-size: 16px;
+}}
+
+
+
+
+
+marquee {
+  color: rgb(14, 225, 176);
+}
+
+/* Estilo para dispositivos com largura de tela menor ou igual a 600px (por exemplo, celulares) */
+@media (max-width: 600px) {
+  #generateStarsButton {
+    width: 200px;
+    /* Tamanho menor para dispositivos móveis */
+  }
+}

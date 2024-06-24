@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil do Usuário</title>
+<!--grmatrix autor -->
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+  
+    background: url(images/b58b63da2fdddc91f4637.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      font-family: 'Barlow', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+input{
+  border-radius: 30px;
+}
+    .profile-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+#upload {
+    display: none;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25% 25%;
+   
+}
+
+input, button {
+    display: block;
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border:2px green solid ;
+    border-radius: 50px 20px;
+}
+button:hover{
+  background-color: red;
+}
+.saved-data{
+margin-top: 24px;
+  border-radius: 25% 10%;
+  background-color: rgb(44,236,93);
+height: 200px;
+width:200px;
+color:rgb(64,75,104);
+border:2px  solid #00B5F2;
+}
+          .saved-data:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.5);
+          }
+      
+          @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+          }
+      
+          .saved-data:nth-child(odd) {
+            animation: pulse 2s infinite;
+          }
+          mark{
+           background:rgb(64,75,104);
+           border-radius:30px;
+           color:#F2D700;
+          }
+          
+          p{
+            background:rgb(64, 75, 104);
+            border-radius:30px;
+            color:white;
+          }
+#fileInput{
+  border-radius:30px;
+  background:red;
+  color:rgba(196, 242, 0, 1);
+}
+</style>
+</head>
+<body>
+  <center>
+  <div class="profile-container">
+    <div class="profile-image">
+      <img id="profileImg" src="https://i.ibb.co/hVxWM5w/f6d809cc399a3a114bd6afd02db4154f.jpg" src="default-profile-image.png" alt="imagem">
+    </div>
+    <input type="file" id="fileInput">
+    <button onclick="saveProfile()">Salvar foto de perfil</button>
+  </div>
+    
+  <div class="form-container">
+    <input type="text" id="input-nome" placeholder="Nome:seunome...">
+    <input type="email" id="input-email" placeholder="exemplo@gmail.com">
+    <input type="text" id="input-morada" placeholder="[Morada]ex:av 123 rio nilo...">
+    
+    <button onclick="salvarUsuario()">Salvar</button>
+  </div>
+
+  <div id="saved-data" class="saved-data">
+    <!-- O conteúdo salvo será exibido aqui -->
+  </div>
+<script>
+function salvarUsuario() {
+  var nome = document.getElementById('input-nome').value;
+  var email = document.getElementById('input-email').value;
+  var morada = document.getElementById('input-morada').value;
+
+  if(nome && email && morada) {
+    // Criar um objeto com os dados
+    var usuarioData = {
+      nome: nome,
+      email: email,
+      morada: morada
+    };
+    
+    // Salvar os dados no localStorage do navegador
+    localStorage.setItem("usuario", JSON.stringify(usuarioData));
+    
+    // Mostrar os dados salvos na div
+    exibirDadosSalvos();
+    
+    // Alerta de sucesso
+    alert('Dados do usuário salvos com sucesso!');
+  } else {
+    // Alerta de campos vazios
+    alert('Por favor preencha todos os campos antes de salvar.');
+  }
+}
+
+// Função para exibir os dados salvos na div
+function exibirDadosSalvos() {
+  var dados = localStorage.getItem("usuario");
+  if(dados) {
+    var usuarioData = JSON.parse(dados);
+    var divSavedData = document.getElementById("saved-data");
+    divSavedData.innerHTML = `<h2>Dados Salvos:</h2>
+    <mark>{{user}}</mark>
+     <p><strong>Nome:</strong> ${usuarioData.nome}</p>
+      <p><strong>Email:</strong> ${usuarioData.email}</p>
+      <p><strong>Morada:</strong> ${usuarioData.morada}</p>`;
+  }
+}
+
+// Chamar a função para exibir os dados salvos ao carregar a página
+exibirDadosSalvos();
+
+
+
+</script>
+
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function() {
+      var file = this.files[0];
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profileImg').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function saveProfile() {
+      var profileImgSrc = document.getElementById('profileImg').src;
+      // Salvar o profileImgSrc no armazenamento local (localstorage)
+      localStorage.setItem('profileImgSrc', profileImgSrc);
+      alert('Perfil salvo com sucesso!');
+    }
+
+    // Recuperar a foto do perfil salvaa quando a página é carregada
+    window.onload = function() {
+      var savedProfileImgSrc = localStorage.getItem('profileImgSrc');
+      if (savedProfileImgSrc) {
+        document.getElementById('profileImg').src = savedProfileImgSrc;
+      }
+    };
+function verificarCampos() {
+  alert('salvo!')
+}
+alert('perfil do usuário #>_<#')
+</script>
+</body>
+<!--grmatrix autor -->
+</html>
+<!--grmatrix autor -->
+<!--grmatrix autor -->
+    <!--grmatrix autor -->
+       
+     <!--grmatrix autor -->
+     
+     <!--grmatrix autor -->
+
+

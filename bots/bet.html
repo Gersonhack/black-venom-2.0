@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en"><head>
+
+
+	
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>black venom</title>
+    <meta charset="UTF-8">
+   
+    <meta property="og:description" content="App created with react.">
+
+
+    
+    
+</head>
+<body>
+
+		
+		
+		
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<style>
+			body{
+			background-color: black;
+				/* Estilos para o botão externo */
+			}
+				.custom-button {
+					position: relative;
+					outline: 0;
+					display: inline-flex;
+					align-items: center;
+					justify-content: space-between;
+					background-image: linear-gradient( 65.9deg,  rgba(85,228,224,1) 5.5%, rgba(75,68,224,0.74) 54.2%, rgba(64,198,238,1) 55.2%, rgba(177,36,224,1) 98.4% );
+					border: 2px solid red;
+					padding: 10px 20px;
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+					box-sizing: border-box;
+				
+			box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+			box-sizing: border-box;
+			overflow: hidden;
+			cursor: pointer;
+			
+				}
+
+
+		button{
+		  color:black;
+		  background: #1DD9C8;
+		  border-radius: 30px;
+		  
+		}
+				/* Estilos para o botão interno (rosa) */
+				.inner-button {
+					background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+					color: black;
+					border: 2px solid darkred;
+					padding: 10px 20px;
+					border-radius: 10px 50px;
+					
+				}
+		
+				/* Estilos para o texto no botão interno */
+				.inner-button-text {
+					font-size: 16px; /* Tamanho de texto maior */
+					font-weight: bold; /* Texto em negrito */
+				}
+		
+				/* Estilos para o texto no botão externo */
+				.purple-text {
+					color: red;
+					margin-right: 10px; /* Espaço à direita para separar do texto interno */
+				}
+		
+				/* Estilos para o cabeçalho com o logotipo */
+				header {
+					background-color:;
+					padding: 10px;
+					text-align: center;
+				}
+		
+				/* Estilos para o logotipo */
+				.logo {
+					max-width: 200px; /* Ajuste o tamanho máximo conforme necessário */
+					height: auto;
+				}
+		
+				/* Estilos para o relógio no canto superior esquerdo */
+				#clock {
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					color: black;
+					font-size: 18px;
+					font-weight: bold;
+					z
+				}
+		
+				/* Estilos para a data abaixo da hora */
+				#date {
+					position: absolute;
+					top: 40px; /* Ajuste a posição vertical conforme necessário */
+					left: 10px; /* Ajuste a posição horizontal conforme necessário */
+					color: rgb(255, 255, 255);
+					font-size: 16px;
+				}
+				#msg1{
+				  transition: 2s;
+				  color:white;
+				  background-color:black;
+				  border-radius: 50px;
+				  font-size: 17px;
+				}
+				
+				#userInfo {
+    font-size: 18px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  
+  /* Defina o tempo que deseja que a mensagem permaneça visível (em milissegundos) */
+  #userInfo.active {
+    display: block;
+    animation: fadeOut 5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+  
+#msg3{
+  color:#75087D;
+  text-align: center;
+  background: navajowhite;
+  border-radius: 30px;
+}
+#msg4{
+  color:white;
+  text-align
+text-align: center;
+border-radius:30px;
+background:#09140F;
+}
+iframe{
+  border:2px solid skyblue;
+}
+			</style>
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> <!-- Adicione a biblioteca SweetAlert2 -->
+		
+		
+		
+			<!-- Botão para abrir o diálogo personalizado -->              <div id="messageText">
+			  				<p id="msg4">black venom</p>
+
+	<p id="msg3">Proteção</p>
+
+			<div class="custom-button"  class='btn' class="animation" class="animation">
+				<span id="clock">20:06:25</span>
+<!-- Elemento para exibir a data -->
+				<span class="purple-text">𝑝𝑜𝑠𝑠𝑖𝑣𝑒𝑙>
+				
+				
+				</span>
+				
+			
+				<span id="msg1">Aguarde...</span>
+				<!-- Botão interno com fundo rosa -->
+				<button class="inner-button">
+					<span class="inner-button-text" id="msg2">Estado do gráfico</span>
+		
+
+
+				</button>
+				
+
+
+
+			</div>
+		              </div>
+			<iframe src="https://m.888bets.co.mz/pt/authentication/signin" width="100%" height="1000"></iframe>
+		
+		
+			<script>
+				// Função para atualizar o relógio
+				function updateClock() {
+					const clockElement = document.getElementById("clock");
+					const dateElement = document.getElementById("date");
+					const now = new Date();
+					const hours = now.getHours().toString().padStart(2, "0");
+					const minutes = now.getMinutes().toString().padStart(2, "0");
+					const seconds = now.getSeconds().toString().padStart(2, "0");
+					const day = now.getDate().toString().padStart(2, "0");
+					const month = (now.getMonth() + 1).toString().padStart(2, "0"); // +1 porque janeiro é 0
+					const year = now.getFullYear();
+					clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+					dateElement.textContent = `${day}/${month}/${year}`;
+				}
+		
+				// Atualize o relógio a cada segundo
+				setInterval(updateClock, 1000);
+		
+				// Chame a função inicialmente para exibir a hora atual
+				updateClock();
+			</script>
+            
+        </div>
+
+        <!-- Importar o arquivo JavaScript -->
+
+		<script>
+		  let predictionInterval = 20000; // Intervalo padrão de 20 segundos
+
+// Função para atualizar o texto dinâmico
+function updateDynamicText() {
+    const dynamicText = document.getElementById("dynamicTet");
+    const possibilities = ["Azul", "Roxo", "Rosa","1.50x",];
+    const randomPossibility = possibilities[Math.floor(Math.random() * possibilities.length)];
+    let randomText = randomPossibility;
+
+    // Correção: A probabilidade de "Rosa" agora é de 45.87%
+    if (randomPossibility === "Rosa" || Math.random() <= 0.4587) {
+        predictionInterval = 40000; // Intervalo de 40 segundos
+    } else {
+        predictionInterval = 20000; // Intervalo de 20 segundos
+    }
+
+    // Se for "Rosa," adiciona um valor aleatório e substitui "X" por "%"
+    if (randomPossibility === "Rosa") {
+        const randomPercentage = (Math.random() * (100 - 1.5) + 1.5).toFixed(2);
+        randomText = `Rosa ${randomPercentage}%`;
+    }
+
+    dynamicText.textContent = randomText;
+
+    setTimeout(updateDynamicText, predictionInterval); // Atualiza dinamicamente
+}
+
+// Função para definir o "Estado do Mercado" uma vez no início
+function setMarketStat() {
+    const marketState = document.getElementById("marketState");
+    const currentTime = new Date().getHours();
+    let marketStateText;
+
+    if (currentTime > 15) {
+        marketStateText = `${(Math.random() * (90 - 60) + 60).toFixed(2)}%`;
+    } else {
+        marketStateText = `${(Math.random() * (60 - 40) + 40).toFixed(2)}%`;
+    }
+
+    marketState.textContent = `Estado do Mercado ${marketStateText}`;
+}
+-->
+// Chama a função para definir o "Estado do Mercado" uma vez no início
+setMarketState();
+
+// Inicia a atualização do texto dinâmico
+setTimeout(updateDynamicText, predictionInterval);
+
+// Função para abrir o diálogo personalizado quando o botão for clicado
+document.getElementById("openDialogButton").addEventListener("click", function() {
+    Swal.fire({
+        title: 'Como usar o bot?',
+        html: 'É importante entender que quando falamos em "rosa", não estamos garantindo que sempre será 100% rosa. Na verdade, a probabilidade de ser rosa é de 45.87%. Isso significa que em 45.87% das vezes, a opção será rosa, mas não é uma certeza absoluta.' +
+            '<br><br>' +
+            'Além disso, queremos lembrar que a vela pode ser de outras cores, como azul ou roxo, e essas cores terão suas próprias probabilidades de ocorrer. Por exemplo, a vela azul pode ter uma probabilidade diferente de 45.87%.' +
+            '<br><br>' +
+            '#black venom',
+        icon: 'info',
+        confirmButtonText: 'Fechar'
+    });
+});
+
+		</script>
+    
+             <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script> <script src = "https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js" > </script>
+         
+               <script src = 'https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js' > </script> <script src = 'https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js' > </script> <script src = 'https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js' > </script> <script src = 'https://www.gstatic.com/firebasejs/7.17.1/firebase.js' > </script> <script>
+               // Configuração do Firebase
+               // Configuração do Firebase
+               const firebaseConfig = {
+                 apiKey: "AIzaSyDmTEqaJ53tJig2eKha7A7oT01w79zcAXY",
+                 authDomain: "chatg-36c94.firebaseapp.com",
+                 databaseURL: "https://chatg-36c94-default-rtdb.firebaseio.com",
+                 projectId: "chatg-36c94",
+                 storageBucket: "chatg-36c94.appspot.com",
+                 messagingSenderId: "475175314382",
+                 appId: "1:475175314382:web:5eff9b6621387c6c7bc19f"
+               };
+             firebase.initializeApp(firebaseConfig);
+         
+             const db = firebase.database();
+         
+             db.ref('mensagens').on('value', snapshot => {
+               const mensagens = snapshot.val();
+               document.getElementById('msg1').innerHTML = mensagens['1'] || '';
+               document.getElementById('msg2').innerHTML = mensagens['2'] || '';
+               document.getElementById('msg3').innerHTML = mensagens['3'] || '';
+               document.getElementById('msg4').innerHTML = mensagens['4'] || '';
+             });
+       </script>
+        
+
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB5v0e77dvzHINhHzCKeMs6QPjqo7Z7img",
+    authDomain: "login-database-black.firebaseapp.com",
+    databaseURL: "https://login-database-black-default-rtdb.firebaseio.com",
+    projectId: "login-database-black",
+    storageBucket: "login-database-black.appspot.com",
+    messagingSenderId: "768021690283",
+    appId: "1:768021690283:web:221e866026541faffa04ee"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+  // Verifica se o usuário está autenticado ao carregar a página
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      //Usuário está logado, permanece na tela
+      console.log("Usuário logado!");
+    }
+
+
+    else {
+      //Usuário não está logado, redireciona para index.html
+      console.log("Usuário não logado! Redirecionando...");
+      window.location.replace("../index.html");
+
+    }
+
+  });
+</script>
+
+</body></html>

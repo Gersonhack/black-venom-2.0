@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala VIP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        .chat-icon {
+border:5px solid green;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+        .chat-dialog {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+            border-radius: 10px;
+            width: 300px;
+            padding: 10px;
+            display: none;
+            overflow-y: scroll;
+            max-height: 300px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 9998;
+        }
+        .message-container {
+            margin-bottom: 10px;
+            clear: both;
+            overflow: hidden;
+        }
+        .user-message {
+            float: right;
+            background-color: #dcf8c6;
+            color: #000;
+            padding: 8px;
+            border-radius: 20px 20px 0px 20px;
+            margin-left: 50px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .bot-message {
+            float: left;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #000;
+text-shadow: 0px 2px 3px white;
+            padding: 8px;
+            border-radius: 20px 20px 20px 0px;
+            margin-right: 50px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .final-message {
+            float: right;
+            background-color: #007bff;
+            color: white;
+            padding: 8px;
+            border-radius: 20px 20px 20px 0px;
+            margin-left: 50px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .scroll-to-bottom-icon {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            display: none;
+            z-index: 9999;
+        }
+        .scroll-to-bottom-icon i {
+            font-size: 24px;
+        }
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-icon" id="chatIcon" onclick="toggleChatDialog()">💬</div>
+    <div class="chat-dialog" id="chatDialog">
+        <div class="close-icon" onclick="toggleChatDialog()">✖</div>
+        <div class="messages" id="messages"><div class="message-container"><div class="bot-message">Nome: venom vip Mensagem: entrada confirmada Entrar se cair abaixo de: 3.45X Saquê em: 3.68X Proteção: 1.54X</div></div></div>
+    </div>
+
+    <div class="scroll-to-bottom-icon" id="scrollToBottomIcon" onclick="scrollToBottom()" style="display: none;">
+        <i class="fa fa-chevron-down"></i>
+    </div>
+
+    <iframe src="https://www.elephantbet.co.mz/aviator/"></iframe>
+
+    <script>
+        // Função para gerar números aleatórios dentro de um intervalo
+        function getRandomNumber(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        // Função para atualizar as mensagens com valores aleatórios
+        function updateMessages() {
+            var messagesDiv = document.getElementById("messages");
+            var messageContainer = document.createElement("div");
+            messageContainer.className = "message-container";
+            var botMessage = document.createElement("div");
+            botMessage.className = "bot-message";
+            botMessage.textContent = "Nome: venom vip Mensagem: entrada confirmada Entrar se cair abaixo de: " + getRandomNumber(2.09, 9.00) + "X Saquê em: " + getRandomNumber(1.50, 5.00) + "X Proteção: " + getRandomNumber(1.50, 2.00) + "X";
+            messageContainer.appendChild(botMessage);
+            messagesDiv.appendChild(messageContainer);
+            scrollToBottom();
+            setTimeout(function() {
+                var finalMessage = document.createElement("div");
+                finalMessage.className = "final-message";
+                finalMessage.textContent = "Entrada finalizada ❇️❇️❇️📝";
+                messagesDiv.appendChild(finalMessage);
+                scrollToBottom();
+                showScrollToBottomIcon();
+            }, 40000); // Envie a mensagem "Entrada finalizada" 40 segundos após a mensagem de "entrada confirmada"
+        }
+
+        // Função para rolar para o final da página
+        function scrollToBottom() {
+            var messagesDiv = document.getElementById("messages");
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            hideScrollToBottomIcon();
+        }
+
+        // Função para mostrar o ícone de rolar para baixo
+        function showScrollToBottomIcon() {
+            document.getElementById("scrollToBottomIcon").style.display = "block";
+        }
+
+        // Função para esconder o ícone de rolar para baixo
+        function hideScrollToBottomIcon() {
+            document.getElementById("scrollToBottomIcon").style.display = "none";
+        }
+
+        // Função para abrir ou fechar o diálogo de chat
+        function toggleChatDialog() {
+            var chatDialog = document.getElementById("chatDialog");
+            if (chatDialog.style.display === "none" || chatDialog.style.display === "") {
+                chatDialog.style.display = "block";
+                scrollToBottom();
+            } else {
+                chatDialog.style.display = "none";
+            }
+        }
+
+        // Atualiza as mensagens ao iniciar a atividade
+        updateMessages();
+
+        // Define o temporizador para adicionar uma nova mensagem do bot após 1 minuto
+        setInterval(updateMessages, 60000);
+
+    </script>
+
+    
+      
+        
+     
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB5v0e77dvzHINhHzCKeMs6QPjqo7Z7img",
+    authDomain: "login-database-black.firebaseapp.com",
+    databaseURL: "https://login-database-black-default-rtdb.firebaseio.com",
+    projectId: "login-database-black",
+    storageBucket: "login-database-black.appspot.com",
+    messagingSenderId: "768021690283",
+    appId: "1:768021690283:web:221e866026541faffa04ee"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+  // Verifica se o usuário está autenticado ao carregar a página
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      //Usuário está logado, permanece na tela
+      console.log("Usuário logado!");
+    }
+
+
+    else {
+      //Usuário não está logado, redireciona para index.html
+      console.log("Usuário não logado! Redirecionando...");
+      window.location.replace("../index.html");
+
+    }
+
+  });
+</script>
+          
+          
+</body></html>
