@@ -26,6 +26,10 @@
 			background-color: black;
 				/* Estilos para o botão externo */
 			}
+			button{
+			  font-size
+			    20px
+			 	}
 				.custom-button {
 					position: relative;
 					outline: 0;
@@ -54,6 +58,7 @@
 		  color:black;
 		  background: #1DD9C8;
 		  border-radius: 30px;
+		  font-size:20px;
 		  
 		}
 				/* Estilos para o botão interno (rosa) */
@@ -170,8 +175,8 @@ iframe{
 		
 			<!-- Botão para abrir o diálogo personalizado -->              <div id="messageText">
 			  				<p id="msg4">black venom</p>
-
-	<p id="msg3">Proteção</p>
+<button  onclick="ff()">voltar</button>
+	<p id="msg3"></p>
 
 			<div class="custom-button"  class='btn' class="animation" class="animation">
 				<span id="clock">20:06:25</span>
@@ -182,7 +187,7 @@ iframe{
 				</span>
 				
 			
-				<span id="msg1">Aguarde...</span>
+				<span id="msg1">---</span>
 				<!-- Botão interno com fundo rosa -->
 				<button class="inner-button">
 					<span class="inner-button-text" id="msg2">Estado do gráfico</span>
@@ -352,5 +357,10 @@ document.getElementById("openDialogButton").addEventListener("click", function()
 
   });
 </script>
+  <script>
+    function ff() {
+      window.location.href = "robôs.html"
 
+    }
+  </script>
 </body></html>

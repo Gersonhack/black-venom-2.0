@@ -704,4 +704,16 @@ boy{
 }
 
 
-    
+    button{
+  background: black;
+  color:white;
+  border:2px solid red;
+  border-radius: 5px;
+  font-size:20px;
+}
+button:hover{
+  background: white;
+  color:black;
+  border:2px solid red;
+  
+}
