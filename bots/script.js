@@ -110,3 +110,6 @@ doc.querySelector('.close').addEventListener("click", function(){
 function gr(){
   window.location.href="elephant.html"
 }
+function a() {
+  window.location.href = "angola.html"
+}
