@@ -128,7 +128,6 @@
     <script>
 $(document).ready(() => {
             console.log('run')
-            const avatar = $('<img>').addClass('avatar u').attr('src', '/images/336fed22bca43768a14c2259c54f44f6.jpg').attr('alt', 'User Avatar');
           
             $('#sendMessageBtn').on('click', () => {
               const userInput = $('#userInput').val();
@@ -154,10 +153,10 @@ $(document).ready(() => {
           
           
            
-              function getParameterByName(query, url) {
+              function getParameterByName(n, url) {
                 if (!url) url = window.location.href;
-                query = query.replace(/[\[\]]/g, '\\$&');
-                var regex = new RegExp('[?&]' + query + '(=([^&#]*)|&|#|$)'),
+                n = query.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + n + '(=([^&#]*)|&|#|$)'),
                   results = regex.exec(url);
                 if (!results) return null;
                 if (!results[2]) return '';
