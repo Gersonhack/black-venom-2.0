@@ -153,10 +153,10 @@ $(document).ready(() => {
           
           
            
-              function getParameterByName(n, url) {
+              function getParameterByName(name , url) {
                 if (!url) url = window.location.href;
-                n = query.replace(/[\[\]]/g, '\\$&');
-                var regex = new RegExp('[?&]' + n + '(=([^&#]*)|&|#|$)'),
+                name = query.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
                   results = regex.exec(url);
                 if (!results) return null;
                 if (!results[2]) return '';
