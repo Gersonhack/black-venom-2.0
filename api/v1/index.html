@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT</title>
+ 
+    <style>
+    html{
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow-y: hidden;
+        }
+        .chat-container {
+           max-width: 400px;
+            
+            margin: 0 auto;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+            border-radius: 5px;
+            
+        }
+        .chat-messages {
+            max-height: 700px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+          
+        }
+        .user-message, .bot-message {
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 10px;
+            max-width: 70%;
+        }
+        .user-message {
+            background-color: #66b3ff;
+            color: #ffffff;
+            margin-left: 50px;
+            float: right;
+        }
+        .bot-message {
+            background-color: #f0f0f0;
+            color: #000000;
+            float: left;
+        }
+        .chat-input {
+            display: flex;
+            align-items: center;
+        }
+        input {
+            flex: 1;
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+         .avatar {
+           width: 30px;
+           height: 30px;
+           border-radius: 50%;
+           margin-right: 10px;
+         }
+         .u{
+         position: absolute;
+         left: -2px;
+         top:-2px;
+         }
+         
+           .loading-dots {
+            position: absolute;
+            right: -20px; /* Posiciona os pontos de carregamento fora da mensagem */
+            width: 40px;
+            text-align: center;
+            color: #999;
+            animation: dots 1s infinite; /* Adiciona a animação */
+        }
+
+        @keyframes dots {
+            0%, 20% {
+                content: '.';
+            }
+            40% {
+                content: '..';
+            }
+            60% {
+                content: '...';
+            }
+        }
+        
+        h1{
+          font-size: 13px;        }
+          
+          #nameSpan{
+            color:#33D8D0;
+          }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+      <h1>hello, <span id="nameSpan"></span>! bem-vindo ao módelo GPT</h1>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Mensagens do chat -->
+        </div>
+        <div class="chat-input">
+          <img src="/images/22ee2f07e2b5cb01263a9c846d85aa6d.jpg" class="avatar" alt="User Avatar">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+            <button id="sendMessageBtn">Enviar</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(() => {
+            console.log('run')
+            const avatar = $('<img>').addClass('avatar u').attr('src', '/images/336fed22bca43768a14c2259c54f44f6.jpg').attr('alt', 'User Avatar');
+          
+            $('#sendMessageBtn').on('click', () => {
+              const userInput = $('#userInput').val();
+              sendMessage('user', userInput);
+          
+           
+              $.get('https://blacksystemofc.com.br/api/ia/gpt', { query: userInput, apikey: 'ader' }, (response) => {
+                const botMessage = response.resultado;
+                sendMessage('bot', botMessage);
+              });
+            });
+          
+            function sendMessage(sender, message) {
+              const chatMessages = $('#chatMessages');
+              const chatMessage = $('<div>').addClass(`${sender}-message`).append(avatar.clone()).append($('<span>').text(message));
+              chatMessages.append(chatMessage);
+          
+              $('#userInput').val(''); 
+              chatMessages.scrollTop(chatMessages[0].scrollHeight);
+            }
+          });
+          
+          
+          
+           
+              function getParameterByName(query, url) {
+                if (!url) url = window.location.href;
+                query = query.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + query + '(=([^&#]*)|&|#|$)'),
+                  results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+              }
+          
+           
+              window.onload = function() {
+                var name = getParameterByName('name');
+                if (name) {
+                  var nameSpan = document.getElementById('nameSpan');
+                  nameSpan.textContent = name;
+                }
+              };
+    </script>
+</body>
+
+</html>
+
+
