@@ -153,15 +153,20 @@ $(document).ready(() => {
           
           
            
-              function getParameterByName(name , url) {
-                if (!url) url = window.location.href;
-                name = query.replace(/[\[\]]/g, '\\$&');
-                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                  results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, ' '));
-              }
+              // Função para obter o parâmetro da URL
+function getParameterByName(name, url) {
+  if (!url) {
+    url = window.location.pathname; // Obtém apenas o caminho da URL (sem hostname)
+  } else {
+    var pathArray = url.split('/');
+    url = pathArray[pathArray.length - 2]; // Obtém o penúltimo segmento da URL (o nome da pasta)
+  }
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
           
            
               window.onload = function() {
